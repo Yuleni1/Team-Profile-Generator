@@ -20,7 +20,7 @@ test("gets employee id",()=>{
     
     expect(employee.getId()).toBe('650')
 })
-test("gets employee id",()=>{
+test("gets employee email",()=>{
     const employee = new Employee('650','yuleni@gmail.com')
 
     
