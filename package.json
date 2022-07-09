@@ -1,5 +1,28 @@
 {
   "dependencies": {
     "inquirer": "^8.2.4"
-  }
+  },
+  "devDependencies": {
+    "jest": "^28.1.2"
+  },
+  "name": "team-profile-generator",
+  "description": "",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yuleni1/Team-Profile-Generator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yuleni1/Team-Profile-Generator/issues"
+  },
+  "homepage": "https://github.com/Yuleni1/Team-Profile-Generator#readme"
 }
