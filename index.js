@@ -2,6 +2,10 @@ const fs = require('fs');
 const path = require('path');
 const inquirer = require('inquirer');
 const generatePage = require('./src/page-template');
+const Manager = require('../Team-Profile-Generator/lib/Manager');
+const Engineer = require('../Team-Profile-Generator/lib/Engineer');
+
+const managerArray =[];
 const employees = [];
 
 const managerPrompt = () => {
@@ -27,10 +31,16 @@ const managerPrompt = () => {
         message: 'Please enter managers office number.'
         }
         ])
+        .then(managerData => { 
+            const manager = new Manager (managerData.name, managerData.id,managerData.email,managerData.officeNumber)
+            managerArray.push(manager);
+            console.log(managerArray);
+            
+        })
 }
 
 
-const employeePromt=(employeeArray) => {
+const employeePromt=() => {
 
     console.log(`
 =================
@@ -94,15 +104,33 @@ Add a New Employee
             default: false
         }
        ])
-       .then(employeeData => {
-        employees.push(employeeData);
-        console.log(employees)
-        if(employeeData.confirmaAddNewEmployee){
-            return employeePromt(employeeData);
-        }else{
-            return employees;
+       .then(employeeAnswers => {
+        if (employee === 'engineer'){
+            employee = new Engineer (employeeAnswers.name, employeeAnswers.id, employeeAnswers.email, employeeAnswers.github);
+            console.log(employee);
         }
+        
        
        })
     } 
-    employeePromt();
+
+
+    const writeFile = data => {
+        fs.writeFile('./dist/index.html', data, err => {
+                   if (err) {
+                     console.log(err);
+                   return;
+                    }
+             console.log('Page created! Check out index.html in this directory to see it!');
+                  
+    })
+}
+
+managerPrompt()
+.then(employeePromt)
+// .then( => {
+//     console.log(managerArray);
+// })
+// .then(pageHTML => {
+//     return writeFile(pageHTML);
+//   })
