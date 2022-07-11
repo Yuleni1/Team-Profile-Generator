@@ -1,4 +1,4 @@
-const generateManager = function (manager){
+const htmlBlocks = function (teamMembers){
     return `
     <!DOCTYPE html>
     <html lang="en">
@@ -15,11 +15,56 @@ const generateManager = function (manager){
     
     <body>
       <header>
-       ${manager.name}
-          <header>
+       ${teamMembers}
+      </header>
     </body>
     </html>
     `;
   }
 
-  module.exports =  generateManager
+function appendManager(manager) {
+    return `
+        <h1>${manager.name}</h1>
+        <h2>${manager.id}</h2>
+        <h2>${manager.email}</h2>
+        <h2>${manager.officeNumber}</h2>
+    `
+} 
+
+function appendEngineer(engineer) {
+    return `
+        <h1>${engineer.name}</h1>
+        <h2>${engineer.id}</h2>
+        <h2>${engineer.email}</h2>
+        <h2>${engineer.github}</h2>
+    `
+}
+function appendIntern(intern) {
+    return `
+        <h1>${intern.name}</h1>
+        <h2>${intern.id}</h2>
+        <h2>${intern.email}</h2>
+        <h2>${intern.school}</h2>
+    `
+}
+
+
+function generateHTML(teamMembersArray) {
+
+    const teamMembersCard = [];
+
+    for (let i = 0; i < teamMembersArray.length; i++) {
+        const role = teamMembersArray[i].getRole();
+        const member = teamMembersArray[i]
+
+        if (role === "Manager") teamMembersCard.push(appendManager(member))
+        else if(role === "Engineer") teamMembersCard.push(appendEngineer(member))
+        else if(role === "Intern") teamMembersCard.push(appendIntern(member))
+    }
+
+    return htmlBlocks(teamMembersCard.join(''));
+
+}
+
+
+module.exports = generateHTML;
