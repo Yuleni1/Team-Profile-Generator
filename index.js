@@ -8,8 +8,7 @@ const Intern = require('../Team-Profile-Generator/lib/Intern');
 const { execArgv } = require('process');
 
 const teamMembersArray = [];
-const managerArray =[];
-const employees = [];
+
 
 const managerPrompt = () => {
 
@@ -78,25 +77,25 @@ const employeePromt = () => {
             type: 'input',
             name:  'github',
             message: 'Please enter github.',
-            // when: ({employee}) => {
-            //     if(employee === 'engineer'){
-            //         return true;
-            //     } else{
-            //         return false;
-            //     }
-            // }
+            when: ({employee}) => {
+                if(employee === 'engineer'){
+                    return true;
+                } else{
+                    return false;
+                }
+            }
         },
         {
             type:'input',
             name:'school',
             message:'Please enter school.',
-            // when:({employee}) => {
-            //     if(employee === 'intern'){
-            //         return true;
-            //     } else {
-            //         return false;
-            //     }
-            // }
+            when:({employee}) => {
+                if(employee === 'intern'){
+                    return true;
+                } else {
+                    return false;
+                }
+            }
         },
         {
             type: 'list',
@@ -133,8 +132,30 @@ const writeFile = data => {
                   
     })
 }
+const copyFile = () => {
+    return new Promise((resolve, reject) =>{
+
+                fs.copyFile('./src/style.css', './dist/style.css', err => {
+                      if (err) {
+                        reject(err);
+                        
+                        return;
+                      }
+                      resolve({
+                      ok: true,
+                      message:'Style sheet copied successfully!'
+
+                      })
+                      
+                    });
+    })
+}
 
 managerPrompt()
 .then(employeePromt)
 .then(teamMembersArray => generateHTML(teamMembersArray))
 .then(pageHTML => writeFile(pageHTML))
+.then(writeFileResponse => {
+    console.log(writeFileResponse);
+    return copyFile();
+  })
