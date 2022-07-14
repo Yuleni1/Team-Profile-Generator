@@ -4,7 +4,7 @@ const Engineer = require('../lib/Engineer');
 test('creates github', ()=>{
     const engineer = new Engineer('Yuleni', '650','yuleni@gmail.com' ,'Yuleni1');
 
-    expect(engineer.gitHub).toBe('Yuleni1');
+    expect(engineer.github).toBe('Yuleni1');
 
     })
 
