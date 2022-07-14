@@ -16,3 +16,36 @@ section.card.col-sm-3 {
 .row {
     justify-content: center;
 }
+
+section {
+    font-size: medium;
+}
+
+h2 {
+    font-size: 20px;
+    text-align: center;
+    padding: 15px;
+}
+.manager {
+    background: #0000ff78;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 30px;
+}
+.card {
+    border-radius: 10px;
+}
+
+.engineer {
+    background: #00ff9d78;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 30px;
+}
+
+.intern {
+    background: #deec11e7;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 30px;
+}

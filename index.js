@@ -76,7 +76,7 @@ const employeePromt = () => {
         {
             type: 'input',
             name:  'github',
-            message: 'Please enter github.',
+            message: 'If engineer please enter github user name.',
             when: ({employee}) => {
                 if(employee === 'engineer'){
                     return true;
@@ -88,7 +88,7 @@ const employeePromt = () => {
         {
             type:'input',
             name:'school',
-            message:'Please enter school.',
+            message:'If intern Please enter school.',
             when:({employee}) => {
                 if(employee === 'intern'){
                     return true;
