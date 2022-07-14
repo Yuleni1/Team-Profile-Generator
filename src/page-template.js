@@ -33,9 +33,9 @@ function appendManager(manager) {
     <div >
         <h2 class="manager"> Manager </h2>
         <h2>${manager.name}</h2>
-        <h2>${manager.id}</h2>
+        <h2> ID: ${manager.id}</h2>
         <a href=mailto: ${manager.email}><h2>${manager.email}</h2></a>
-        <h2>${manager.officeNumber}</h2>
+        <h2> Office Number: ${manager.officeNumber}</h2>
         <div>
         </section>
        
@@ -48,8 +48,8 @@ function appendEngineer(engineer) {
     <div>
          <h2 class="engineer"> Engineer </h2>
         <h2>${engineer.name}</h2>
-        <h2>${engineer.id}</h2>
-        <a href=mailto: ${engineer.email}><h2>${engineer.email}</h2></a>
+        <h2> ID: ${engineer.id}</h2>
+        <a href=mailto: ${engineer.email}><h2> ${engineer.email}</h2></a>
         <a href=https://github.com/${engineer.github}><h2>https://github.com/${engineer.github}</h2></a>
 
         </div>
@@ -62,9 +62,9 @@ function appendIntern(intern) {
     <div>
          <h2 class="intern"> Intern </h2>
         <h2>${intern.name}</h2>
-        <h2>${intern.id}</h2>
+        <h2> ID: ${intern.id}</h2>
         <a href=mailto: ${intern.email}><h2>${intern.email}</h2></a>
-        <h2>${intern.school}</h2>
+        <h2> School: ${intern.school}</h2>
         </div>
         </section>
     `
