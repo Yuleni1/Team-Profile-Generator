@@ -1,4 +1,4 @@
-const Employee = require('../lib/Employee');
+const Employee = require('../lib/Employee'); 
 const Manager = require('../lib/Manager');
 
 test('creates office number', ()=>{
